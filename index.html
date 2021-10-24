@@ -4,49 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <header>
+    <header class="d-flex justify-content-between align-items-center">
         <nav>
-            <button>View High Scores</button>
+            <button type="button" class="btn btn-primary btn-lg">View High Scores</button>
         </nav>
-        <span id="timer"></span>
+        <h5 id="timer"></h5>
     </header>
-    <section class="cards">
-        <div id="mainCard">
-            <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer the following questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-            <button id="begin">Start Quiz</button>
-        </div>
-        <div class="question">
+    <section id="intro">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the following questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+        <button id="begin" type="button" class="btn btn-primary btn-lg">Start Quiz</button>
+    </section>
+    
+    <section class="card", style="width: 200rem;">
+        <div>
             <h1></h1>
-            <div>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
+            <div class="list-group list-group-flush">
+                <button type="button" class="btn btn-primary btn-lg"></button>
+                <button type="button" class="btn btn-primary btn-lg"></button>
+                <button type="button" class="btn btn-primary btn-lg"></button>
+                <button type="button" class="btn btn-primary btn-lg"></button>
             </div>
         </div>
-        <div id="finalScore">
-            <h1>All done!</h1>
-            <span></span>
-            <span>Your intials:</span>
-            <input type="text" maxlength="5" minlength="2">
-        </div>
-        <div id="highScores">
+    <section id="finalScore"><h1>All done!</h1>
+        <span></span>
+        <span>Your intials:</span>
+        <input type="text" maxlength="5" minlength="2">
+    </section>
+    <section id="highScores">
             <h1>High Scores</h1>
             <ol>
 
             </ol>
-            <div>
-                <button>Try Again!</button>
-                <button>Clear High Scores</button>
+            <div class="list-group list-group-flush">
+                <button type="button" class="btn btn-primary btn-lg">Try Again!</button>
+                <button type="button" class="btn btn-primary btn-lg">Clear High Scores</button>
             </div>
-        </div>
     </section>
-    <footer>
+    <footer id="response">
 
     </footer>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
