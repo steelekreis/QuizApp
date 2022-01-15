@@ -7,13 +7,16 @@
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body id="all" style="align-content: center;">
+<body>
+    <main id="all" style="align-content: center;">
     <section id="landing">
     <header class="d-flex justify-content-between align-items-center">
         <nav>
             <button type="button" class="btn btn-primary btn-lg">View High Scores</button>
         </nav>
-        <h5 id="timer"></h5>
+        <h5 id="timer">
+            Time Remaining: <span id="countdown">20</span>
+        </h5>
     </header>
     <section id="intro">
         <h1>Coding Quiz Challenge</h1>
@@ -22,35 +25,38 @@
     </section>
     </section>
     
-    <section class="card", style="display:none; width: 200rem;">
+    <section id="questions" class="card", style="display:none; width: 200rem;">
         <div>
-            <h1></h1>
+            <h1 id="qtext"></h1>
             <div class="list-group list-group-flush">
-                <button type="button" class="btn btn-primary btn-lg"></button>
-                <button type="button" class="btn btn-primary btn-lg"></button>
-                <button type="button" class="btn btn-primary btn-lg"></button>
-                <button type="button" class="btn btn-primary btn-lg"></button>
+                <button id="q1" type="button" class="btn btn-primary btn-lg"></button>
+                <button id="q2" type="button" class="btn btn-primary btn-lg"></button>
+                <button id="q3" type="button" class="btn btn-primary btn-lg"></button>
+                <button id="q4" type="button" class="btn btn-primary btn-lg"></button>
             </div>
+            <span id="result"></span>
         </div>
     </section>
     <section id="finalScore" style="display: none;"><h1>All done!</h1>
-        <span></span>
+        <h2>You have survived this harrowing experience.</h2>
+        <div>
+            You have obtained <span id="score"></span> points!
+        </div>
         <span>Your intials:</span>
         <input type="text" maxlength="5" minlength="2">
+        <button type="submit">Submit Score</button>
     </section>
-    <section id="highScores" style="display: none;">
+    <section id="highScores" style="display: none;">    
             <h1>High Scores</h1>
-            <ol>
-
+            <ol id="scoreList">
+                
             </ol>
             <div class="list-group list-group-flush">
-                <button type="button" class="btn btn-primary btn-lg">Try Again!</button>
+                <button id= "tryAgain" type="button" class="btn btn-primary btn-lg">Try Again!</button>
                 <button type="button" class="btn btn-primary btn-lg" id="clear">Clear High Scores</button>
             </div>
     </section>
-    <footer id="response">
-
-    </footer>
+    </main>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
