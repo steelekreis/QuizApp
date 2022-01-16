@@ -16,7 +16,8 @@ var tryAgain = document.getElementById('tryAgain');
 var clearScores = document.getElementById('clear');
 var submitScore = document.getElementById('submit');
 var initials = document.getElementById('initials');
-var answerList = document.getElementById('answerList')
+var answerList = document.getElementById('answerList');
+var viewScores = document.getElementById('viewScores');
 
 var questions = [
   {
@@ -71,7 +72,8 @@ var highScores = function() {
 //Clear High scores from local storage
 
 clearScores.addEventListener('click', function() {
-  localStorage.clear;
+  localStorage.removeItem('storeScore');
+
   highscoreList.textContent = "";
 })
 
@@ -93,8 +95,8 @@ var random = function (min, max) {
 };
 
 function quiz() {
-  document.getElementById('intro').style.display = 'none';
-  document.getElementById('questions').style.display = 'block';
+  intro.style.display = 'none';
+  qSection.style.display = 'block';
 
   timer = setInterval(clockTick, 1000);
   generateQuestion();
@@ -179,6 +181,7 @@ function saveScore () {
   localStorage.setItem("storeScore", JSON.stringify(highScores));
   finalScore.style.display = 'none';
   highscoreSection.style.display = 'block';
+  viewScores.style.display = 'none';
   loadData();
 };
 
@@ -191,3 +194,10 @@ var loadData = function() {
   }
 };
 
+viewScores.addEventListener ('click', toScores);
+
+function toScores() {
+  intro.style.display = 'none';
+  highscoreSection.style.display = 'block';
+  loadData();
+};
