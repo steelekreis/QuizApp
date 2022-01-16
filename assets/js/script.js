@@ -76,7 +76,7 @@ clearScores.addEventListener('click', function() {
 })
 
 //Try again button and function
-tryAgain.addEventListener ("click", quiz);
+
 // GIVEN I am taking a code quiz
 
 
@@ -84,6 +84,7 @@ tryAgain.addEventListener ("click", quiz);
 // WHEN I click the start button
 startButton.addEventListener ("click", quiz);
 // THEN a timer starts and I am presented with a question
+
 
 
 var random = function (min, max) {
@@ -176,13 +177,17 @@ function saveScore () {
   initials.value = "";
   highScores.push(storeScore);
   localStorage.setItem("storeScore", JSON.stringify(highScores));
+  finalScore.style.display = 'none';
+  highscoreSection.style.display = 'block';
+  loadData();
 };
 
 var loadData = function() {
   var storedScores = JSON.parse(localStorage.getItem('storeScore')) || [];
   for (var i = 0; i < storedScores.length; i++) {
-    var scoreList = document.createElement('li');
+    var scoreList = document.createElement('span');
     scoreList.textContent = storedScores[i].name + " " + storedScores[i].score;
     highscoreList.appendChild(scoreList);
   }
 };
+
