@@ -52,12 +52,22 @@ const questions = [
 
 //Retrieving and displaying High scores function
 
-
+var highScores = function() {
+  var storedScores = JSON.parse(localStorage.getItem('storeScore')) || [];
+  for (var index = 0; i < storedScores.length, index++) {
+    var scoreItem = document.createElement('li');
+    scoreItem.textContent = storedScores[index].score + " " + storedScores[index].name;
+    highscoreList.appendChild(scoreItem);
+  }
+};
 
 
 //Clear High scores from local storage
 
-
+clearScores.addEventListener('click', function() {
+  localStorage.clear;
+  highscoreList.textContent = "";
+})
 
 //Try again button and function
 
