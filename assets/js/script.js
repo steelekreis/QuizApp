@@ -1,7 +1,21 @@
 //variables and consts
-var time = document.getElementById('timer');
+var countdown = document.getElementById('countdown');
 var startButton = document.getElementById('begin');
-var cardSection = document.getElementById('cards');
+var qSection = document.getElementById('questions');
+var landing = document.getElementById('landing');
+var mainPage = document.getElementById('all');
+var intro = document.getElementById('intro');
+var beginButton = document.getElementById('begin');
+var questionText = document.getElementById('qtext');
+var questionResult = document.getElementById('result');
+var finalScore = document.getElementById('finalScore');
+var userScore = document.getElementById('score');
+var highscoreSection = document.getElementById('highScores');
+var highscoreList = document.getElementById('scoreList');
+var tryAgain = document.getElementById('tryAgain');
+var clearScores = document.getElementById('clear');
+
+
 const questions = [
   {
     question: "What is Harry Potter's middle name?",
@@ -34,13 +48,6 @@ const questions = [
     correctAnswer: "d"
   }
 ];
-// arr
-        //Start quiz button click switch to first array question card and start timer (go to high schore funct) and assign random value to user
-
-        //if timer0 condition
-
-        //Upon click a button store answer T/F, subtract from score if F. Generate next question
-    //display/generate final score. Ask for intials. Not required
 
 
 //Retrieving and displaying High scores function
@@ -49,9 +56,6 @@ const questions = [
 
 
 //Clear High scores from local storage
-//document.getElementById('clear').addEventListener ("click", function() {
-//  localStorage.clear()
-//});
 
 
 
@@ -66,6 +70,7 @@ startButton.addEventListener ("click", quiz);
 // THEN a timer starts and I am presented with a question
 function quiz() {
   document.getElementById('landing').style.display = 'none';
+  document.getElementById('landing').style.display = 'block';
   var timeLeft = 75;
   var timeInterval = setInterval(function () {
     if (timeLeft > 0) {
