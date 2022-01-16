@@ -51,14 +51,18 @@ var questions = [
   },
 ];
 
+var timeLeft = 20;
+var timer;
+var queIndex = 0;
+var userScore = 90;
 
 //Retrieving and displaying High scores function
 
 var highScores = function() {
   var storedScores = JSON.parse(localStorage.getItem('storeScore')) || [];
-  for (var index = 0; index < storedScores.length; index++) {
+  for (var i = 0; i < storedScores.length; i++) {
     var scoreItem = document.createElement('li');
-    scoreItem.textContent = storedScores[index].score + " " + storedScores[index].name;
+    scoreItem.textContent = storedScores[i].score + " " + storedScores[i].name;
     highscoreList.appendChild(scoreItem);
   }
 };
@@ -80,10 +84,7 @@ tryAgain.addEventListener ("click", quiz);
 // WHEN I click the start button
 startButton.addEventListener ("click", quiz);
 // THEN a timer starts and I am presented with a question
-var timeLeft = 20;
-var timer;
-var questionIndex = 0;
-var userScore = 90;
+
 
 var random = function (min, max) {
   var rando = Math.floor(Math.random() * (max-min) + min);
@@ -101,17 +102,16 @@ function quiz() {
 
 
 function generateQuestion() {
-  var currentQuestion = questions[questionIndex];
-  var lastQuestion = questions[questions.length + 1];
+  var currentQuestion = questions[queIndex];
+  var lastQuestion = questions[questions.length + 1]
 
   if (currentQuestion == lastQuestion) {
     endQuiz();
-    console.log('ummmmmm');
   }
   else {
     questionText.textContent = currentQuestion.question;
     questionText.setAttribute('class','card-header text-center');
-    questionResult.innerHTML = '';
+    answerList.innerHTML = '';
     currentQuestion.answers.forEach(function(element) {
       var qStuff = document.createElement('button');
       qStuff.innerText = element;
@@ -124,7 +124,7 @@ function generateQuestion() {
 };
 
 function validate() {
-  var currentQuestion = questions[questionIndex];
+  var currentQuestion = questions[queIndex];
   var userAnswer = this.value;
 
   if (userAnswer === currentQuestion.correctAnswer) {
@@ -137,10 +137,8 @@ function validate() {
     timeLeft -= 5;
     clockTick;
   };
-
-  questionIndex++;
-  console.log(questionIndex);
-  generateQuestion;
+  queIndex++
+  generateQuestion();
 };
 
 function clockTick() {
@@ -163,7 +161,7 @@ submitScore.addEventListener ('click', saveScore);
 
 function saveScore () {
   if (initials.value === "") {
-    alert('Please enter you initials in order to submit!');
+    alert('Please enter your initials in order to submit!');
     return false;
   }
   else {
@@ -182,9 +180,9 @@ function saveScore () {
 
 var loadData = function() {
   var storedScores = JSON.parse(localStorage.getItem('storeScore')) || [];
-  for (var index = 0; index < storedScores.length; index++) {
+  for (var i = 0; i < storedScores.length; i++) {
     var scoreList = document.createElement('li');
-    scoreList.textContent = storedScores[index].name + " " + storedScores[index].score;
+    scoreList.textContent = storedScores[i].name + " " + storedScores[i].score;
     highscoreList.appendChild(scoreList);
   }
 };
