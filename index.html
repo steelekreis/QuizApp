@@ -18,23 +18,22 @@
             Time Remaining: <span id="countdown">20</span>
         </h5>
     </header>
-    <section id="intro">
-        <h1>Coding Quiz Challenge</h1>
+    <section class="card text-center" id="intro">
+        <h1 class="card-header">Coding Quiz Challenge</h1>
         <p>Try to answer the following questions within the time limit. Any incorrect answers will penalize your score/time by ten seconds!</p>
         <button id="begin" type="button" class="btn btn-primary btn-lg">Start Quiz</button>
     </section>
     </section>
     
-    <section id="questions" class="card", style="display:none; width: 200rem;">
-        <div>
-            <h1 id="qtext"></h1>
-            <div class="list-group list-group-flush">
-                <button id="q1" type="button" class="btn btn-primary btn-lg"></button>
+    <section id="questions" class="card" style="display:none;">
+        <div class="card-body">
+            <h1 class="card-header" id="qtext"></h1>
+            <div id="answerList" class="list-group list-group-flush">
             </div>
             <span id="result"></span>
         </div>
     </section>
-    <section id="finalScore" style="display: none;"><h1>All done!</h1>
+    <section id="finalScore" class="card text-center" style="display: none;"><h1>All done!</h1>
         <h2>You have survived this harrowing experience.</h2>
         <div>
             You have obtained <span id="score"></span> points!
@@ -43,7 +42,7 @@
         <input id="initials" type="text" maxlength="5" minlength="2">
         <button id="submit" type="submit">Submit Score</button>
     </section>
-    <section id="highScores" style="display: none;">    
+    <section id="highScores" class="card text-center" style="display: none;">    
             <h1>High Scores</h1>
             <ol id="scoreList">
                 

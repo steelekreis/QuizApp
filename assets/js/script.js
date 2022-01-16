@@ -16,9 +16,9 @@ var tryAgain = document.getElementById('tryAgain');
 var clearScores = document.getElementById('clear');
 var submitScore = document.getElementById('submit');
 var initials = document.getElementById('initials');
+var answerList = document.getElementById('answerList')
 
-
-const questions = [
+var questions = [
   {
     question: "What is Harry Potter's middle name?",
     answers: [
@@ -48,7 +48,7 @@ const questions = [
       "1945"
     ],
     correctAnswer: "1945"
-  }
+  },
 ];
 
 
@@ -106,18 +106,19 @@ function generateQuestion() {
 
   if (currentQuestion == lastQuestion) {
     endQuiz();
+    console.log('ummmmmm');
   }
   else {
     questionText.textContent = currentQuestion.question;
-    questionText.setAttribute('class','question-title');
+    questionText.setAttribute('class','card-header text-center');
     questionResult.innerHTML = '';
     currentQuestion.answers.forEach(function(element) {
       var qStuff = document.createElement('button');
-      qStuff.textcontent = element;
-      qStuff.setAttribute('class','cta cta-primary quiz-button');
+      qStuff.innerText = element;
+      qStuff.setAttribute('class','btn btn-primary btn-lg');
       qStuff.setAttribute('value', element);
       qStuff.onclick = validate;
-      questionResult.appendChild(qStuff);
+      answerList.appendChild(qStuff);
     });
   }
 };
@@ -138,7 +139,7 @@ function validate() {
   };
 
   questionIndex++;
-
+  console.log(questionIndex);
   generateQuestion;
 };
 
@@ -149,7 +150,7 @@ function clockTick() {
   if (timeLeft <= 0) {
     endQuiz;
   };
-};
+}
 
 function endQuiz() {
   clearInterval(timer);
