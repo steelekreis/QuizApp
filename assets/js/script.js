@@ -188,7 +188,8 @@ function saveScore () {
 var loadData = function() {
   var storedScores = JSON.parse(localStorage.getItem('storeScore')) || [];
   for (var i = 0; i < storedScores.length; i++) {
-    var scoreList = document.createElement('span');
+    var scoreList = document.createElement('li');
+    scoreList.setAttribute('class','list-group-item');
     scoreList.textContent = storedScores[i].name + " " + storedScores[i].score;
     highscoreList.appendChild(scoreList);
   }

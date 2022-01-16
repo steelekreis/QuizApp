@@ -25,7 +25,7 @@
     </section>
     </section>
     
-    <section id="questions" class="card" style="display:none;">
+    <section id="questions" class="card text-center" style="display:none;">
         <div class="card-body">
             <h1 class="card-header" id="qtext"></h1>
             <div id="answerList" class="list-group list-group-flush">
@@ -34,18 +34,18 @@
         </div>
     </section>
     <section id="finalScore" class="card text-center" style="display: none;"><h1>All done!</h1>
-        <h2>You have survived this harrowing experience.</h2>
-        <div>
+        <h2  class="card-header">You have survived this harrowing experience.</h2>
+        <label for="initials">Intials</label>
+        <input id="initials" class="form-control-sm" type="text" maxlength="5" minlength="2">
+        <button id="submit" class="btn btn-primary btn-sm" type="submit">Submit Score</button>
+        <div class="card-footer">
             You have obtained <span id="score"></span> points!
         </div>
-        <span>Your intials:</span>
-        <input id="initials" type="text" maxlength="5" minlength="2">
-        <button id="submit" type="submit">Submit Score</button>
     </section>
     <section id="highScores" class="card text-center" style="display: none;">    
             <h1>High Scores</h1>
-            <div id="scoreList">
-            </div>
+            <ol class="list-group" id="scoreList">
+            </ol>
             <div class="list-group list-group-flush">
                 <a class="btn btn-primary btn-lg" href="file:///C:/Users/steel/Desktop/ProjectsCoding/QuizApp/index.html">Try Again!</a>
                 <button type="button" class="btn btn-primary btn-lg" id="clear">Clear High Scores</button>
